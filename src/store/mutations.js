@@ -7,5 +7,16 @@ export default {
     //修改token状态
     changeToken(state,token){
         state.token=token
+    },
+    //修改Loading状态
+    changeLoading(state,loading){
+        state.loading=loading
+    },
+    //修改组织状态
+    changeOrganization(state,organization){
+        state.organizationStatus=organization
+    },
+    changeOrganizationText(state,organization){
+        state.organizationText=organization
     }
 }

@@ -103,9 +103,9 @@
 
 <script>
 import { Toast } from "vant";
-import { ref } from "vue";
+import { ref,reactive,toRefs } from "vue";
 import { useRouter } from "vue-router";
-import { testToken } from '../utils/user';
+import { testToken,loginHJA } from '../utils/user';
 export default {
   setup() {
     const router = useRouter();
@@ -129,6 +129,7 @@ export default {
       showPassword.value = true;
     };
     const onUpdate = (item) => {
+      Toast.clear();
       Toast.loading({
         message: "检查更新中...",
         forbidClick: true,
@@ -180,6 +181,13 @@ export default {
         console.log(res);
         Toast.success(res.username);
       });
+      // loginHJA({
+      //   Id:"admin",
+      //   Password:"8888"
+      // }).then(res=>{
+      //   console.log(res)
+      // })
+
     };
     return {
       oldpassword,

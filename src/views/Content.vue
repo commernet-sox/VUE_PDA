@@ -30,10 +30,7 @@ export default {
 <template>
   <top-nav-bar :title="title"></top-nav-bar>
   <div class="contentContainer">
-    <van-row align="center">
-<div>{{ text }}</div>
-    </van-row>
-    
+    <div>{{ text }}</div>
   </div>
 </template>
 

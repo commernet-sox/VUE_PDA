@@ -2,7 +2,6 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from '../components/HelloWorld.vue'
-
 import { ref } from "vue";
 import { useRouter } from 'vue-router'
 export default {
@@ -18,12 +17,12 @@ export default {
 </script>
 
 <template>
-  <van-grid :gutter="10" :column-num="3">
+  <van-grid :gutter="10" :column-num="7">
       <van-grid-item
-        v-for="value in 20"
-        :key="value"
+        v-for="(value,index) in 20"
+        :key="index"
         icon="photo-o"
-        :text="value"
+        :text="value.toString()"
         @click="goToDetail(value)"
       />
     </van-grid>
@@ -34,5 +33,7 @@ export default {
 </template>
 
 <style>
-
+.van-grid{
+  padding-top: 10px;
+}
 </style>

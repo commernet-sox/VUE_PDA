@@ -24,6 +24,14 @@
   export const setLocal = (name, value) => {
     localStorage.setItem(name, value)
   }
+
+  export const getSessionStorage=(name)=>{
+    return sessionStorage.getItem(name)
+  }
+
+  export const setSessionStorage=(name,value)=>{
+    sessionStorage.setItem(name,value)
+  }
   
   export const tdist = {
     210184: ["沈北新区", "210100"],

@@ -1,7 +1,7 @@
 <template>
   <div class="loginContainer">
     <div class="center">
-      <img class="logo" src="../assets/login.jpg" alt="" />
+      <img class="logo" src="/assets/login.jpg" alt="" />
       <van-form @submit="onSubmit">
         <van-cell-group inset>
           <van-field
@@ -35,7 +35,7 @@ import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { login } from "../utils/user.js";
-import { setLocal } from "../common/js/utils.js";
+import { setLocal,setSessionStorage } from "../common/js/utils.js";
 import { Toast } from "vant";
 export default {
   setup() {
@@ -67,6 +67,7 @@ export default {
         store.dispatch("updateToken", data.value);
         console.log(store.state.token);
       }
+        setSessionStorage("token",data.value)
         setLocal("token", data.value);
         router.push({ path: "/home" });
       } else {

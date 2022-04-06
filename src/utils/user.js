@@ -25,3 +25,7 @@ export function register(params) {
   return axios.post('/user/register', params);
 }
 
+export function loginHJA(params){
+  return post('/api.ashx?tag=user.login',params)
+}
+

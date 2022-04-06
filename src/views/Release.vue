@@ -19,7 +19,7 @@ export default {
       v-for="value in 20"
       :key="value"
       icon="photo-o"
-      :text="value"
+      :text="value.toString()"
       @click="goToDetail(value)"
     />
   </van-grid>

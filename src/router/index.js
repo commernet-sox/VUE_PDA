@@ -75,7 +75,41 @@ const router = createRouter({
             path: '/my',
             component: () => import('../views/My.vue')
         },
+        {
+            path: '/404',
+            component: () => import('../views/404.vue')
+        },
     ]
 })
+
+// 导航守卫
+// 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
+router.beforeEach((to, from, next) => {
+    if (process.env.NODE_ENV != 'development' && navigator.userAgent != "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1" ) {
+        if(to.path==='/404')
+        {
+            next();
+        }
+        else
+        {
+            next('/404');
+        }
+        
+    }
+    else if (to.path === '/login') {
+        next();
+    } else {
+        let token = sessionStorage.getItem('token');
+        console.log(token)
+        console.log(navigator.userAgent)
+        // if (token === null || token === '') {
+        //     next('/login');
+        // } else {
+        //     //其他页面
+        //     next();
+        // }
+        next();
+    }
+});
 
 export default router
